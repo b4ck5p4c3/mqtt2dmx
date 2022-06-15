@@ -114,6 +114,7 @@ def main():
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
+    print(settings.ca_certs)
     if settings.ca_certs:
         client.tls_set(ca_certs=settings.ca_certs)
 
@@ -124,9 +125,4 @@ def main():
     client.loop_forever()
     del dmx
 if __name__ == '__main__':
-    while 1:
-        try: 
-            main()
-        except:
-            print("Please, debug the program. Check mqtt and serial ports. Comment this TRY.")
-            time.sleep(1)
+    main()
