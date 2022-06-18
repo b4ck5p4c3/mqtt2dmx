@@ -108,13 +108,13 @@ def on_message(client, userdata, msg):
         print("Please, use bus/dmx/#/# format, reset channel")
         return
     
-    print(msg.topic+" "+str(msg.payload))
+    if settings.topic_logging:
+        print(f"{msg.topic} {msg.payload}")
 
 def main():
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
-    print(settings.ca_certs)
     if settings.ca_certs:
         client.tls_set(ca_certs=settings.ca_certs)
 

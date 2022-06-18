@@ -4,3 +4,4 @@ mqtt_login="foo" # MQTT broker username
 mqtt_pass="bar"  # MQTT broker password
 serial="/dev/ttyUSB0" # Path to DMX tty device
 ca_certs = "root.ca" # Path to MQTT broker CA or None
+topic_logging = False # Topic payload logging
